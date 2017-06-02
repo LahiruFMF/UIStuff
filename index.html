@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    <script>
+
+        $(function(){
+           $(".textbox").focusin(function(){
+               $(".label").addClass("focused");
+           });
+            $(".textbox").focusout(function(){
+                if($(".textbox").val()==""){
+                $(".label").removeClass("focused");
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .input-field {
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .input-field .textbox {
+            background: #FFF;
+            border: none;
+            border-bottom: 1px solid #333;
+            outline: none;
+            padding: 10px 10px 10px 13px;
+        }
+
+        .input-field .label {
+            position: absolute;
+            top: 9px;
+            left: 15px;
+            opacity: 0.5;
+            font-size: 14px;
+            transition: 0.2s ease all;
+        }
+
+        .input-field .focused {
+            top: -23px;
+            left: 0px;
+            opacity: 1;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div class="input-field">
+    <label class="label">From</label>
+    <input type="text" class="textbox">
+</div>
+</body>
+</html>
